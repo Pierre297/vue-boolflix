@@ -2,10 +2,10 @@
   <div id="app">
     <header>
       <h1>BOOLFLIX</h1>
-      <Navbar />
+      <Navbar @search="inputButton" />
     </header>
     <main>
-      <Movielist />
+      <Movielist :searchbar="searchText" />
     </main>
   </div>
 </template>
@@ -19,6 +19,22 @@ export default {
   components: {
     Navbar,
     Movielist,
+  },
+  props: {
+    searchbar: String,
+  },
+  data() {
+    return {
+      searchText: "",
+      inputText: "",
+    };
+  },
+  computed: {},
+  methods: {
+    inputButton() {
+      this.searchText = this.inputText;
+      console.log(this.searchText);
+    },
   },
 };
 </script>
@@ -34,6 +50,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  background-color: #434343;
 }
 header {
   background-color: #000000;
@@ -45,9 +62,5 @@ header {
     color: #e10000;
     margin: 30px;
   }
-}
-
-main {
-  background-color: #434343;
 }
 </style>

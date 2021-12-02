@@ -2,7 +2,7 @@
   <div>
     <form action="">
       <input type="text" v-model="inputText" />
-      <button>Search</button>
+      <button @click.prevent="$emit('search', searchbar)">Search</button>
     </form>
   </div>
 </template>
@@ -15,7 +15,6 @@ export default {
     return {
       searchbar: "",
       inputText: "",
-      searchText: "",
     };
   },
 };

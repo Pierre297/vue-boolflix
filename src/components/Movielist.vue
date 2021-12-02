@@ -1,7 +1,11 @@
 <template>
   <div class="movie-container">
     <div class="movie-card">
-      <Moviecard v-for="(movie, i) in movies" :key="i" :moviedetails="movie" />
+      <Moviecard
+        v-for="(movie, i) in filteredMovies"
+        :key="i"
+        :moviedetails="movie"
+      />
     </div>
   </div>
 </template>
@@ -26,13 +30,26 @@ export default {
       apiUrl:
         "https://api.themoviedb.org/3/search/movie?api_key=2f4f5117825f869acb512d659eb0281c&language=en-US&query=house&page=1&include_adult=false",
       movies: [],
+      searchText: "",
     };
   },
 
   created() {
     this.getMovies();
   },
-  computed: {},
+  computed: {
+    filteredMovies() {
+      if (this.searchbar === "") {
+        return this.movies;
+      }
+
+      return this.movies.filter((item) => {
+        return item.original_title
+          .toLowerCase()
+          .includes(this.searchText.toLowerCase());
+      });
+    },
+  },
 
   methods: {
     getMovies() {
