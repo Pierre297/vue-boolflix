@@ -22,7 +22,7 @@ export default {
   data() {
     return {
       apiUrl:
-        "https://api.themoviedb.org/3/search/movie?api_key=2f4f5117825f869acb512d659eb0281c&language=en-US&query=The%20NeverEnding%20Story&page=1&include_adult=false&region=USA&year=1984&primary_release_year=1984",
+        "https://api.themoviedb.org/3/search/movie?api_key=2f4f5117825f869acb512d659eb0281c&language=en-US&query=house&page=1&include_adult=false",
       movies: [],
     };
   },

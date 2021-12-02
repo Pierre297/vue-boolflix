@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div>
+    <div class="movie-card">
       <h3>{{ moviedetails.title }}</h3>
       <span>{{ moviedetails.overview }}</span>
-      <span>{{ moviedetails.release_date }}</span>
+      <div>{{ moviedetails.release_date }}</div>
     </div>
   </div>
 </template>
@@ -20,4 +20,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+.movie-card {
+  color: white;
+}
 </style>
