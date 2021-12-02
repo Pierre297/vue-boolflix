@@ -1,6 +1,8 @@
 <template>
-  <div>
-    <Moviecard v-for="(movie, i) in movies" :key="i" :moviedetails="movie" />
+  <div class="movie-container">
+    <div class="movie-card">
+      <Moviecard v-for="(movie, i) in movies" :key="i" :moviedetails="movie" />
+    </div>
   </div>
 </template>
 
@@ -44,4 +46,14 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+.movie-container {
+  width: 95%;
+  margin: 20px auto;
+}
+.movie-card {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 </style>
