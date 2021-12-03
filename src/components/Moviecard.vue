@@ -1,7 +1,11 @@
 <template>
   <div class="card-container">
     <div class="card">
-      <!-- <img :src="moviedetails.poster_path" :alt="moviedetails.title" /> -->
+      <img
+        class="movie-poster"
+        :src="moviePoster(moviedetails)"
+        :alt="moviedetails.title"
+      />
       <h2>{{ moviedetails.title }}</h2>
       <h3>{{ moviedetails.original_title }}</h3>
       <span
@@ -23,11 +27,20 @@ export default {
     moviedetails: Object,
   },
   methods: {
+    // bandiere lingua
     flagLanguage(element) {
       if (element.original_language === "en") {
         return "https://www.countryflags.com/wp-content/uploads/united-kingdom-flag-png-large.png";
       } else {
         return "https://today.uic.edu/files/2015/11/Flag_of_France.png";
+      }
+    },
+    // poster card
+    moviePoster(element) {
+      if (element.poster_path !== null) {
+        return `https://image.tmdb.org/t/p/w342${element.poster_path}`;
+      } else if (element.poster_path == null) {
+        return;
       }
     },
   },
@@ -43,7 +56,7 @@ export default {
 .card {
   color: white;
   border: 2px solid white;
-  height: 500px;
+  height: 510px;
 
   h2 {
     margin: 15px;
@@ -55,5 +68,8 @@ export default {
 .flag {
   width: 30px;
   margin: 20px;
+}
+.movie-poster {
+  width: 100%;
 }
 </style>
