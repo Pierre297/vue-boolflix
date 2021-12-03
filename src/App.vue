@@ -28,10 +28,14 @@ export default {
     return {
       searchText: "",
       inputText: "",
+      // API movies
       baseUrl: "https://api.themoviedb.org/3/search/",
       apiKey: "?api_key=2f4f5117825f869acb512d659eb0281c",
       language: "&language=en-US",
       movies: [],
+      // API series
+      baseUrlTv: "https://api.themoviedb.org/3/search/",
+      tvSeries: [],
     };
   },
   computed: {},
@@ -44,6 +48,20 @@ export default {
     getFilms() {
       let url =
         this.baseUrl +
+        "movie" +
+        this.apiKey +
+        this.language +
+        "&query=" +
+        this.searchText;
+      console.log(url);
+      axios.get(url).then((result) => {
+        this.movies = result.data.results;
+        console.log(this.movies);
+      });
+    },
+    getSeries() {
+      let url =
+        this.baseUrlTv +
         "movie" +
         this.apiKey +
         this.language +
