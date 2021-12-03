@@ -6,15 +6,17 @@
         :src="moviePoster(moviedetails)"
         :alt="moviedetails.title"
       />
-      <!-- <h2>{{ moviedetails.title }}</h2>
-      <h3>{{ moviedetails.original_title }}</h3>
-      <span
-        ><img
-          class="flag"
-          :src="flagLanguage(moviedetails)"
-          :alt="moviedetails.original_language"
-      /></span>
-      <div>{{ moviedetails.vote_average }}</div> -->
+      <!-- <div class="overlay text">
+        <h2>{{ moviedetails.title }}</h2>
+        <h3>{{ moviedetails.original_title }}</h3>
+        <span
+          ><img
+            class="flag"
+            :src="flagLanguage(moviedetails)"
+            :alt="moviedetails.original_language"
+        /></span>
+        <div>{{ moviedetails.vote_average }}</div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -57,8 +59,7 @@ export default {
 .card {
   color: white;
   border: 2px solid white;
-  height: 510px;
-
+  // height: 510px;
   h2 {
     margin: 15px;
   }
@@ -73,4 +74,20 @@ export default {
 .movie-poster {
   width: 100%;
 }
+// display testo
+// .card:hover .overlay {
+//   opacity: 1;
+// }
+// .overlay {
+//   height: 100%;
+//   width: 100%;
+//   opacity: 0;
+//   transition: 0.5s ease;
+//   background-color: #434343;
+// }
+// .text {
+//   color: white;
+//   font-size: 20px;
+//   text-align: center;
+// }
 </style>

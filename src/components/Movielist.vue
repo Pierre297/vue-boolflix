@@ -1,11 +1,7 @@
 <template>
   <div class="movie-container">
     <div class="movie-card">
-      <Moviecard
-        v-for="(movie, i) in filteredMovies"
-        :key="i"
-        :moviedetails="movie"
-      />
+      <Moviecard v-for="(movie, i) in movies" :key="i" :moviedetails="movie" />
       <Seriescard
         v-for="(serie, tv) in series"
         :key="tv"
@@ -30,15 +26,14 @@ export default {
 
   props: {
     searchbar: String,
+    movies: Array,
   },
 
   data() {
     return {
       apiUrlMovies:
-        "https://api.themoviedb.org/3/search/movie?api_key=2f4f5117825f869acb512d659eb0281c&language=en-US&query=house&page=1&include_adult=false",
-      apiUrlSeries:
-        "https://api.themoviedb.org/3/search/tv?api_key=2f4f5117825f869acb512d659eb0281c&language=en-US&page=1&query=scrubs&include_adult=false",
-      movies: [],
+        "https://api.themoviedb.org/3/search/movie?api_key=2f4f5117825f869acb512d659eb0281c&language=en-US&query=a&page=1&include_adult=false",
+
       series: [],
       searchText: "",
     };

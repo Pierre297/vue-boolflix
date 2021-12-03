@@ -2,7 +2,7 @@
   <div class="searchbar">
     <form action="">
       <input type="text" v-model="inputText" />
-      <button @click.prevent="$emit('search', searchText)">Search</button>
+      <button @click.prevent="$emit('search', inputText)">Search</button>
     </form>
   </div>
 </template>

@@ -5,12 +5,13 @@
       <Navbar @search="inputButton" />
     </header>
     <main>
-      <Movielist :searchbar="searchText" />
+      <Movielist :searchbar="searchText" :movies="movies" />
     </main>
   </div>
 </template>
 
 <script>
+import axios from "axios";
 import Navbar from "./components/Navbar.vue";
 import Movielist from "@/components/Movielist.vue";
 
@@ -27,21 +28,40 @@ export default {
     return {
       searchText: "",
       inputText: "",
+      baseUrl: "https://api.themoviedb.org/3/search/",
+      apiKey: "?api_key=2f4f5117825f869acb512d659eb0281c",
+      language: "&language=en-US",
+      movies: [],
     };
   },
   computed: {},
   methods: {
-    inputButton() {
-      this.searchText = this.inputText;
+    inputButton(param) {
+      this.searchText = param;
       console.log(this.searchText);
+      this.getFilms();
+    },
+    getFilms() {
+      let url =
+        this.baseUrl +
+        "movie" +
+        this.apiKey +
+        this.language +
+        "&query=" +
+        this.searchText;
+      console.log(url);
+      axios.get(url).then((result) => {
+        this.movies = result.data.results;
+        console.log(this.movies);
+      });
     },
   },
 };
 </script>
 
-<style 
-@import '~@fortawesome/fontawesome-free/scss/fontawesome'; 
+<style
 lang="scss">
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
 * {
   margin: 0;
   padding: 0;
