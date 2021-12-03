@@ -6,6 +6,11 @@
         :key="i"
         :moviedetails="movie"
       />
+      <Seriescard
+        v-for="(serie, tv) in series"
+        :key="tv"
+        :seriedetails="serie"
+      />
     </div>
   </div>
 </template>
@@ -13,12 +18,14 @@
 <script>
 import axios from "axios";
 import Moviecard from "@/components/Moviecard.vue";
+import Seriescard from "@/components/Seriescard.vue";
 
 export default {
   name: "Movielist",
 
   components: {
     Moviecard,
+    Seriescard,
   },
 
   props: {
@@ -27,15 +34,19 @@ export default {
 
   data() {
     return {
-      apiUrl:
+      apiUrlMovies:
         "https://api.themoviedb.org/3/search/movie?api_key=2f4f5117825f869acb512d659eb0281c&language=en-US&query=house&page=1&include_adult=false",
+      apiUrlSeries:
+        "https://api.themoviedb.org/3/search/tv?api_key=2f4f5117825f869acb512d659eb0281c&language=en-US&page=1&query=scrubs&include_adult=false",
       movies: [],
+      series: [],
       searchText: "",
     };
   },
 
   created() {
     this.getMovies();
+    this.getSeries();
   },
   computed: {
     filteredMovies() {
@@ -53,8 +64,13 @@ export default {
 
   methods: {
     getMovies() {
-      axios.get(this.apiUrl).then((result) => {
+      axios.get(this.apiUrlMovies).then((result) => {
         this.movies = result.data.results;
+      });
+    },
+    getSeries() {
+      axios.get(this.apiUrlSeries).then((result) => {
+        this.series = result.data.results;
       });
     },
   },
