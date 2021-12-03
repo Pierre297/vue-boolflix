@@ -39,7 +39,9 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style 
+@import '~@fortawesome/fontawesome-free/scss/fontawesome'; 
+lang="scss">
 * {
   margin: 0;
   padding: 0;
@@ -60,7 +62,7 @@ header {
 
   h1 {
     color: #e10000;
-    margin: 30px;
+    margin: 60px;
   }
 }
 </style>

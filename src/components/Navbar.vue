@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="searchbar">
     <form action="">
       <input type="text" v-model="inputText" />
       <button @click.prevent="$emit('search', searchText)">Search</button>
@@ -22,7 +22,14 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-input {
-  margin: 30px;
+.searchbar {
+  margin: 60px;
+
+  input {
+    height: 30px;
+  }
+  button {
+    height: 30px;
+  }
 }
 </style>
