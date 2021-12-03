@@ -6,7 +6,7 @@
         :src="moviePoster(moviedetails)"
         :alt="moviedetails.title"
       />
-      <h2>{{ moviedetails.title }}</h2>
+      <!-- <h2>{{ moviedetails.title }}</h2>
       <h3>{{ moviedetails.original_title }}</h3>
       <span
         ><img
@@ -14,7 +14,7 @@
           :src="flagLanguage(moviedetails)"
           :alt="moviedetails.original_language"
       /></span>
-      <div>{{ moviedetails.vote_average }}</div>
+      <div>{{ moviedetails.vote_average }}</div> -->
     </div>
   </div>
 </template>
@@ -39,9 +39,10 @@ export default {
     moviePoster(element) {
       if (element.poster_path !== null) {
         return `https://image.tmdb.org/t/p/w342${element.poster_path}`;
-      } else if (element.poster_path == null) {
-        return;
       }
+      // else if (element.poster_path == null) {
+      //   return;
+      // }
     },
   },
 };
