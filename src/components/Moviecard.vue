@@ -6,7 +6,7 @@
         :src="moviePoster(moviedetails)"
         :alt="moviedetails.title"
       />
-      <!-- <div class="overlay text">
+      <div class="overlay text">
         <h2>{{ moviedetails.title }}</h2>
         <h3>{{ moviedetails.original_title }}</h3>
         <span
@@ -16,7 +16,7 @@
             :alt="moviedetails.original_language"
         /></span>
         <div>{{ moviedetails.vote_average }}</div>
-      </div> -->
+      </div>
     </div>
   </div>
 </template>
@@ -59,12 +59,14 @@ export default {
 .card {
   color: white;
   border: 2px solid white;
-  // height: 510px;
+  // display testo
+  position: relative;
+
   h2 {
     margin: 15px;
   }
   div {
-    margin: 20px;
+    // margin: 20px;
   }
 }
 .flag {
@@ -73,21 +75,38 @@ export default {
 }
 .movie-poster {
   width: 100%;
+  // display testo
+  display: block;
+  width: 100%;
+  height: auto;
 }
 // display testo
-// .card:hover .overlay {
-//   opacity: 1;
-// }
-// .overlay {
-//   height: 100%;
-//   width: 100%;
-//   opacity: 0;
-//   transition: 0.5s ease;
-//   background-color: #434343;
-// }
-// .text {
-//   color: white;
-//   font-size: 20px;
-//   text-align: center;
-// }
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: 0.5s ease;
+  background-color: #434343;
+}
+
+.card:hover .overlay {
+  opacity: 1;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
 </style>
