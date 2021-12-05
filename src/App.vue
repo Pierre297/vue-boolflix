@@ -1,7 +1,17 @@
 <template>
   <div id="app">
     <header>
-      <h1>BOOLFLIX</h1>
+      <nav>
+        <h1>BOOLFLIX</h1>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Serie TV</a></li>
+          <li><a href="#">Film</a></li>
+          <li><a href="#">Originali</a></li>
+          <li><a href="#">Aggiunti di recente</a></li>
+          <li><a href="#">La mia lista</a></li>
+        </ul>
+      </nav>
       <Navbar @search="inputButton" />
     </header>
     <main>
@@ -100,10 +110,40 @@ header {
   height: 150px;
   display: flex;
   justify-content: space-between;
+}
+h1 {
+  display: inline-block;
+  color: #e10000;
+  margin: 60px;
+  font-size: 36px;
+}
+nav {
+  display: flex;
+  justify-content: center;
 
-  h1 {
-    color: #e10000;
-    margin: 60px;
+  ul {
+    display: inline-block;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  li {
+    float: left;
+    margin-top: 60px;
+  }
+
+  li a {
+    display: block;
+    padding: 8px;
+    color: #b7b7b7;
+    text-decoration: none;
+    font-size: 19px;
+  }
+
+  a:hover {
+    color: white;
   }
 }
 </style>

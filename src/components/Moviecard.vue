@@ -65,9 +65,6 @@ export default {
   h2 {
     margin: 15px;
   }
-  div {
-    // margin: 20px;
-  }
 }
 .flag {
   width: 30px;
@@ -96,6 +93,7 @@ export default {
 
 .card:hover .overlay {
   opacity: 1;
+  cursor: pointer;
 }
 
 .text {
